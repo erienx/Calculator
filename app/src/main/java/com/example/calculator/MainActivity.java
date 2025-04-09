@@ -22,19 +22,52 @@ public class MainActivity extends AppCompatActivity {
     private StringBuilder exp = new StringBuilder();
     private int openParentheses = 0;
     private boolean isResultDisplayed = false;
+    private boolean isScientificMode = true;
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putBoolean("isScientificMode", isScientificMode);
+        outState.putString("screenText", screen.getText().toString());
+        outState.putString("expression", exp.toString());
+        outState.putInt("openParentheses", openParentheses);
+        outState.putBoolean("isResultDisplayed", isResultDisplayed);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_main);
+
+        if (savedInstanceState != null) {
+            isScientificMode = savedInstanceState.getBoolean("isScientificMode", false);
+        }
+
+        if (isScientificMode) {
+            setContentView(R.layout.activity_basic);
+        } else {
+            setContentView(R.layout.activity_scientific);
+        }
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-
+        Button swap = findViewById(R.id.swap);
+        swap.setOnClickListener(view -> {
+            isScientificMode = !isScientificMode;
+            recreate();
+        });
         screen = findViewById(R.id.screen);
+        if (savedInstanceState != null) {
+            String restoredText = savedInstanceState.getString("screenText", "");
+            screen.setText(restoredText);
+
+            exp = new StringBuilder(savedInstanceState.getString("expression", ""));
+            openParentheses = savedInstanceState.getInt("openParentheses", 0);
+            isResultDisplayed = savedInstanceState.getBoolean("isResultDisplayed", false);
+        }
+
         ArrayList<Button> nums = new ArrayList<>();
 
         int[] numIds = {R.id.n0, R.id.n1, R.id.n2, R.id.n3, R.id.n4, R.id.n5, R.id.n6, R.id.n7, R.id.n8, R.id.n9};
@@ -388,8 +421,8 @@ public class MainActivity extends AppCompatActivity {
         List<String> postfix = getPostFix(expr);
         Stack<Double> stack = new Stack<>();
 
-        Toast toast = Toast.makeText(this, postfix.toString(), Toast.LENGTH_LONG);
-        toast.show();
+//        Toast toast = Toast.makeText(this, postfix.toString(), Toast.LENGTH_LONG);
+//        toast.show();
 
         for (String token : postfix) {
             if (token.matches("-?\\d+(\\.\\d+)?")) {

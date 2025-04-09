@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="auto_size_min_text">8sp</dimen>
+    <dimen name="auto_size_max_text">24sp</dimen>
+    <dimen name="auto_size_step">2sp</dimen>
+</resources>

@@ -12,13 +12,17 @@
     </style>
 
     <style name="button_special_base">
-        <item name="android:layout_width">75dp</item>
-        <item name="android:layout_height">75dp</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:textSize">32sp</item>
         <item name="android:gravity">center</item>
-        <item name="android:padding">10dp</item>
-        <item name="android:layout_margin">4dp</item>
+        <item name="android:textAllCaps">false</item>
+
+<!--        BELOW DOESN'T APPLY IN STYLES:))    -->
+<!--        <item name="android:layout_width">0dp</item>-->
+<!--        <item name="android:layout_height">0dp</item>-->
+<!--        <item name="android:autoSizeTextType">uniform</item>-->
+<!--        <item name="android:autoSizeMinTextSize">8sp</item>-->
+<!--        <item name="android:autoSizeMaxTextSize">36sp</item>-->
+<!--        <item name="android:autoSizeStepGranularity">2sp</item>-->
     </style>
 
     <style name="button_special_green" parent="button_special_base">
@@ -47,54 +51,12 @@
         <item name="android:textColor">@color/green</item>
     </style>
 
-    <style name="button_special_base_sci">
-        <item name="android:layout_width">50dp</item>
-        <item name="android:layout_height">45dp</item>
-        <item name="android:textStyle">bold</item>
-        <item name="android:textSize">18sp</item>
-        <item name="android:gravity">center</item>
-        <item name="android:padding">10dp</item>
-        <item name="android:layout_margin">4dp</item>
-    </style>
-
-    <style name="button_special_green_sci" parent="button_special_base_sci">
-        <item name="android:background">@drawable/button_shape_special</item>
-        <item name="android:textColor">@color/green</item>
-    </style>
-
-    <style name="button_special_orange_sci" parent="button_special_base_sci">
-        <item name="android:textStyle">normal</item>
-        <item name="android:background">@drawable/button_shape_special</item>
-        <item name="android:textColor">@color/orange</item>
-    </style>
-
-    <style name="button_special_reversed_sci" parent="button_special_base_sci">
-        <item name="android:background">@drawable/button_shape_reversed</item>
-        <item name="android:textColor">@color/white</item>
-    </style>
-
-    <style name="button_nums_sci" parent="button_special_base_sci">
-        <item name="android:background">@drawable/button_shape_nums</item>
-        <item name="android:textColor">@color/white</item>
-    </style>
-    <style name="button_special_del_sci" parent="button_special_base_sci">
-        <item name="android:background">@drawable/button_shape_del</item>
-        <item name="android:textColor">@color/green</item>
-    </style>
-    <style name="button_nums_left_sci" parent="button_special_base_sci">
+    <style name="button_nums_left_sci" parent="button_special_base">
         <item name="android:background">@drawable/button_shape_special</item>
         <item name="android:textStyle">normal</item>
         <item name="android:textColor">@color/white</item>
         <item name="android:textAllCaps">false</item>
-        <item name="android:textSize">14sp</item>
     </style>
 
-
-
-
     <style name="Theme.Calculator" parent="Base.Theme.Calculator" />
-
-
-
-
 </resources>
