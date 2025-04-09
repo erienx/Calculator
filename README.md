@@ -1,13 +1,16 @@
 # Calculator
 
-## Work in progress
-Project will be expanded to allow for both scientific and regular mode in both phone orientations. Currently, mode is decided by the phone's orientation.
+Calculator has two modes: basic and scientific. Both can be used in either phone orientation.
 
 
 Functionality and looks are inspired by default android app.
 
-![image](https://github.com/user-attachments/assets/d52f48b8-2949-4eab-afc0-eba0d02338af)
-![image](https://github.com/user-attachments/assets/de5c0773-ff9b-4871-9ad5-0e392f5d6a88)
-![image](https://github.com/user-attachments/assets/34ef7d3a-b7b2-4957-8217-b0bed16c533e)
+![image](https://github.com/user-attachments/assets/63c835bd-a449-427e-ac45-f074113e1d3a)
+
+![image](https://github.com/user-attachments/assets/35dcf8ea-2ff2-454d-9ecf-f9190ef2e824)
+
+![image](https://github.com/user-attachments/assets/8b301bd6-7c9e-463a-85fe-07f4d5a640f7)
+
+
 
 
