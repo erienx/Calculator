@@ -128,8 +128,7 @@
         app:layout_constraintBottom_toTopOf="@+id/factorial"
         app:layout_constraintEnd_toStartOf="@+id/tan"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/placeholder2"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toBottomOf="@+id/placeholder2" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/factorial"
