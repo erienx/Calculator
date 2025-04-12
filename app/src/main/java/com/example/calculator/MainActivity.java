@@ -11,6 +11,8 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.example.calculator.utils.IncorrectOperationException;
+
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
@@ -270,7 +272,14 @@ public class MainActivity extends AppCompatActivity {
                 openParentheses--;
                 addToExp(")");
             }
-            double result = evaluateExp(exp.toString());
+            double result = 0;
+            try {
+                result = evaluateExp(exp.toString());
+            }catch (IncorrectOperationException e){
+                Toast toast = Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT);
+                toast.show();
+                return;
+            }
 
             DecimalFormat df = new DecimalFormat("#.##");
             String formattedResult = df.format(result);
@@ -421,8 +430,6 @@ public class MainActivity extends AppCompatActivity {
         List<String> postfix = getPostFix(expr);
         Stack<Double> stack = new Stack<>();
 
-//        Toast toast = Toast.makeText(this, postfix.toString(), Toast.LENGTH_LONG);
-//        toast.show();
 
         for (String token : postfix) {
             if (token.matches("-?\\d+(\\.\\d+)?")) {
@@ -434,8 +441,11 @@ public class MainActivity extends AppCompatActivity {
                 double base = stack.pop();
                 stack.push(Math.pow(base, exponent));
             } else if (token.equals("!")) {
-                double number = stack.pop();
-                stack.push(factorial(number));
+                double n = stack.pop();
+                if (n<0){
+                    throw new IncorrectOperationException("Error: factorial operand is negative");
+                }
+                stack.push(factorial(n));
             }
             else if (token.equals("sin")) {
                 double n = stack.pop();
@@ -455,14 +465,23 @@ public class MainActivity extends AppCompatActivity {
             }
             else if (token.equals("√")) {
                 double n = stack.pop();
+                if (n<0){
+                    throw new IncorrectOperationException("Error: sqrt operand is negative");
+                }
                 stack.push(Math.sqrt(n));
             }
             else if (token.equals("log")) {
                 double n = stack.pop();
+                if (n<=0){
+                    throw new IncorrectOperationException("Error: log operand is not positive");
+                }
                 stack.push(Math.log10(n));
             }
             else if (token.equals("ln")) {
                 double n = stack.pop();
+                if (n<=0){
+                    throw new IncorrectOperationException("Error: ln operand is not positive");
+                }
                 stack.push(Math.log(n));
             }
             else {
@@ -472,7 +491,13 @@ public class MainActivity extends AppCompatActivity {
                     case '+': stack.push(a + b); break;
                     case '-': stack.push(a - b); break;
                     case '×': stack.push(a * b); break;
-                    case '÷': stack.push(a / b); break;
+                    case '÷': {
+                        if (b==0){
+                            throw new IncorrectOperationException("Error: division by zero");
+                        }
+                        stack.push(a / b);
+                        break;
+                    }
                 }
             }
         }
