@@ -10,7 +10,7 @@
     app:layout_constraintDimensionRatio="1:1"
     app:layout_constraintHorizontal_chainStyle="spread_inside"
     app:layout_constraintVertical_chainStyle="spread_inside"
-    tools:context=".MainActivity">
+    tools:context=".CalculatorActivity">
 
     <TextView
         android:id="@+id/screen"

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    tools:context=".AboutMeActivity">
+
+    <TextView
+        android:id="@+id/textViewHeader"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:text="About me"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:paddingHorizontal="20dp"
+        android:autoSizeTextType="uniform"
+        android:autoSizeMinTextSize="30sp"
+        android:autoSizeMaxTextSize="64sp"
+        android:autoSizeStepGranularity="2sp"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="32dp"/>
+
+    <TextView
+        android:id="@+id/textViewDescription"
+        android:layout_width="0dp"
+        android:layout_height="400dp"
+        android:autoSizeMaxTextSize="32sp"
+        android:autoSizeMinTextSize="17sp"
+        android:autoSizeStepGranularity="2sp"
+        android:autoSizeTextType="uniform"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:paddingHorizontal="20dp"
+        android:background="@drawable/button_menu2"
+        android:layout_margin="50dp"
+        android:text="Hi! I'm Matt, and I love the way the night air smells during Spring. Thanks for checking out my app :)))"
+        android:textColor="#E7E7E7"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewHeader" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

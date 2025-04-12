@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 
-public class MainActivity extends AppCompatActivity {
+public class CalculatorActivity extends AppCompatActivity {
 
     private TextView screen;
     private StringBuilder exp = new StringBuilder();
